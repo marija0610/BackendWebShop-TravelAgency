@@ -1,0 +1,164 @@
+
+###Connect to web client
+get https://betsandbox.westeurope.cloudapp.azure.com/E1
+
+###get one sales invoice
+get http://betsandbox.westeurope.cloudapp.azure.com:7048/E1/api/v2.0/companies(d8c41c25-3bd0-ec11-9622-6045bd8fe131)/salesInvoices(f7ad566b-5adb-ec11-9624-6045bd8fe131)
+Authorization: Basic MARIJA:*Marija06
+
+###Get sales invoices
+get http://betsandbox.westeurope.cloudapp.azure.com:7048/E1/api/v2.0/companies(d8c41c25-3bd0-ec11-9622-6045bd8fe131)/salesInvoices
+Authorization: Basic MARIJA:*Marija06
+
+### get sales lines
+get http://betsandbox.westeurope.cloudapp.azure.com:7048/E1/api/v2.0/companies(d8c41c25-3bd0-ec11-9622-6045bd8fe131)/salesInvoices(d4fae08c-45db-ec11-9624-6045bd8fe131)/salesInvoiceLines
+Authorization: Basic MARIJA:*Marija06
+
+###POST Sales invoice header
+post http://betsandbox.westeurope.cloudapp.azure.com:7048/E1/api/v2.0/companies(d8c41c25-3bd0-ec11-9622-6045bd8fe131)/salesInvoices
+Authorization: Basic MARIJA:*Marija06
+Content-Type: application/json
+
+{
+"postingDate": "2022-05-24", "customerNumber": "30000"
+}
+
+###Post sales invoice line
+post http://betsandbox.westeurope.cloudapp.azure.com:7048/E1/api/v2.0/companies(d8c41c25-3bd0-ec11-9622-6045bd8fe131)/salesInvoices(f7ad566b-5adb-ec11-9624-6045bd8fe131)/salesInvoiceLines
+Authorization: Basic MARIJA:*Marija06
+Content-Type: application/json
+
+{"lineType":"Item","lineObjectNumber":"1005","description":"Palacio de Santa Inés","quantity":7,"unitPrice":60.0,"unitOfMeasureCode":"DAY"}
+
+
+
+### List of apis 
+GET http://betsandbox.westeurope.cloudapp.azure.com:7048/E1/api/v2.0
+Authorization: Basic MARIJA:*Marija06
+
+###List of companies 
+GET http://betsandbox.westeurope.cloudapp.azure.com:7048/E1/api/v2.0/companies 
+Authorization: Basic MARIJA:*Marija06
+
+### List of items 
+GET http://betsandbox.westeurope.cloudapp.azure.com:7048/E1/api/v2.0/companies(d8c41c25-3bd0-ec11-9622-6045bd8fe131)/items 
+Authorization: Basic MARIJA:*Marija06
+
+### List of items with filter 
+GET http://betsandbox.westeurope.cloudapp.azure.com:7048/E1/api/v2.0/companies(d8c41c25-3bd0-ec11-9622-6045bd8fe131)/items?$filter=itemCategoryCode eq 'ARRANGEMENT'
+Authorization: Basic MARIJA:*Marija06
+
+### How to sent order? 
+POST http://betsandbox.westeurope.cloudapp.azure.com:7048/E1/api/v2.0/companies(d8c41c25-3bd0-ec11-9622-6045bd8fe131)/salesOrders 
+Authorization: Basic MARIJA:*Marija06
+Content-Type: application/json
+
+{
+"postingDate": "2022-05-12", "customerNumber": "30000"
+}
+
+###get all sales invoices
+get http://betsandbox.westeurope.cloudapp.azure.com:7048/E1/api/v2.0/companies(d8c41c25-3bd0-ec11-9622-6045bd8fe131)/salesInvoices
+Authorization: Basic MARIJA:*Marija06
+
+
+###Get one sales invoice
+get http://betsandbox.westeurope.cloudapp.azure.com:7048/E1/api/v2.0/companies(d8c41c25-3bd0-ec11-9622-6045bd8fe131)/salesInvoices(715a001a-17ae-ec11-bb8a-000d3a299034)
+Authorization: Basic MARIJA:*Marija06
+
+###all invoice lines
+get http://betsandbox.westeurope.cloudapp.azure.com:7048/E1/api/v2.0/companies(d8c41c25-3bd0-ec11-9622-6045bd8fe131)/salesInvoiceLines
+Authorization: Basic MARIJA:*Marija06
+
+
+###Post sales invoice
+POST http://betsandbox.westeurope.cloudapp.azure.com:7048/E1/api/v2.0/companies(d8c41c25-3bd0-ec11-9622-6045bd8fe131)/salesInvoices(219c33c7-0add-ec11-9624-6045bd8fe131)/Microsoft.NAV.post 
+Authorization: Basic MARIJA:*Marija06
+//response: error 204 no content, that's good: invoice is already sent to back, just trigger the action 
+
+###get default journal lines
+get http://betsandbox.westeurope.cloudapp.azure.com:7048/E1/api/v2.0/companies(d8c41c25-3bd0-ec11-9622-6045bd8fe131)/journals(12411320-17ae-ec11-bb8a-000d3a299034)/journalLines
+Authorization: Basic MARIJA:*Marija06
+
+
+###get all journals (batch)
+get http://betsandbox.westeurope.cloudapp.azure.com:7048/E1/api/v2.0/companies(d8c41c25-3bd0-ec11-9622-6045bd8fe131)/journals
+Authorization: Basic MARIJA:*Marija06
+
+//BANK id: 0e34cd1b-aede-ec11-9624-6045bd8fe131
+//CASH id: 13411320-17ae-ec11-bb8a-000d3a299034
+
+###get bank lines
+get http://betsandbox.westeurope.cloudapp.azure.com:7048/E1/api/v2.0/companies(d8c41c25-3bd0-ec11-9622-6045bd8fe131)/journals(0e34cd1b-aede-ec11-9624-6045bd8fe131)/journalLines
+Authorization: Basic MARIJA:*Marija06
+
+###get cash lines
+get http://betsandbox.westeurope.cloudapp.azure.com:7048/E1/api/v2.0/companies(d8c41c25-3bd0-ec11-9622-6045bd8fe131)/journals(13411320-17ae-ec11-bb8a-000d3a299034)/journalLines
+Authorization: Basic MARIJA:*Marija06
+
+###post bank journal line
+post http://betsandbox.westeurope.cloudapp.azure.com:7048/E1/api/v2.0/companies(d8c41c25-3bd0-ec11-9622-6045bd8fe131)/journals(0e34cd1b-aede-ec11-9624-6045bd8fe131)/journalLines
+Authorization: Basic MARIJA:*Marija06
+Content-Type: application/json
+
+{
+    "accountType":"Customer",
+    "accountNumber": "C00350",
+    "postingDate": "2022-05-29",
+    "amount": 3,
+    "description": "Payment via Bank",
+    "balanceAccountType": "Bank Account",
+}
+
+
+### get all api pages
+get http://betsandbox.westeurope.cloudapp.azure.com:7048/E1/api/v2.0
+Authorization: Basic MARIJA:*Marija06
+
+###post default journal line
+post http://betsandbox.westeurope.cloudapp.azure.com:7048/E1/api/marija/payment/v1.0/companies(d8c41c25-3bd0-ec11-9622-6045bd8fe131)/paymentJournalLines
+Authorization: Basic MARIJA:*Marija06
+Content-Type: application/json
+
+{
+    "journalTemplateName": "GENERAL",
+    "journalBatchId":"12411320-17ae-ec11-bb8a-000d3a299034",
+    "postingDate": "2022-05-30",
+    "documentType" : "Payment",
+    "accountType":"Customer",
+    "accountNo": "C00350",
+    "amount": -200,
+    "paymentMethodCode": "CASH",
+    "description": "Cash payment",
+    "balAccountType": "G/L Account",
+    "balAccountNo": "2910",
+    "appliesToDocType": "Invoice",
+    "lineNo": 3
+}
+
+//2091 - Bal. Account No. for cash
+
+###get journal lines from one journal
+get http://betsandbox.westeurope.cloudapp.azure.com:7048/E1/api/v2.0/companies(d8c41c25-3bd0-ec11-9622-6045bd8fe131)/journals(12411320-17ae-ec11-bb8a-000d3a299034)/journalLines
+Authorization: Basic MARIJA:*Marija06
+
+###post journal line
+post http://betsandbox.westeurope.cloudapp.azure.com:7048/E1/api/marija/payment/v1.0/companies(d8c41c25-3bd0-ec11-9622-6045bd8fe131)/paymentJournalLines(fb60742d-5ce2-ec11-9624-6045bd8fe131)/Microsoft.NAV.postJournalLine
+Authorization: Basic MARIJA:*Marija06
+
+### get payment journal lines
+get http://betsandbox.westeurope.cloudapp.azure.com:7048/E1/api/marija/payment/v1.0/companies(d8c41c25-3bd0-ec11-9622-6045bd8fe131)/paymentJournalLines
+Authorization: Basic MARIJA:*Marija06
+
+### Get all purchase orders
+get http://betsandbox.westeurope.cloudapp.azure.com:7048/E1/api/v2.0/companies(d8c41c25-3bd0-ec11-9622-6045bd8fe131)/purchaseOrders
+Authorization: Basic MARIJA:*Marija06
+
+
+### post purchase order
+post http://betsandbox.westeurope.cloudapp.azure.com:7048/E1/api/v2.0/companies(d8c41c25-3bd0-ec11-9622-6045bd8fe131)/purchaseOrders(c63f1320-17ae-ec11-bb8a-000d3a299034)/Microsoft.NAV.receiveAndInvoice
+Authorization: Basic MARIJA:*Marija06
+
+### Get purchase order
+get http://betsandbox.westeurope.cloudapp.azure.com:7048/E1/api/v2.0/companies(d8c41c25-3bd0-ec11-9622-6045bd8fe131)/purchaseOrders(c63f1320-17ae-ec11-bb8a-000d3a299034)
+Authorization: Basic MARIJA:*Marija06
